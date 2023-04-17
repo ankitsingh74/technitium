@@ -1,0 +1,2 @@
+git restore filename is used to discard changes made in the working directory and replace it with the version [D[D[D[D[D[D[D[D[D[D[D[st commited state.this command useful when you have made changes to a file that you no longer want to keep and want to revert.the command look like:git restore solution.txt 
+in other hand git restore-- is used to unstage changes to a file that have been added to the staging area.the command look like:git restore solution.txt
