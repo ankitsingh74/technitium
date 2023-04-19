@@ -4,6 +4,7 @@
   "description": "Backend cohort for Technetium(Mar,2023)",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,6 +12,9 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "g": "^2.0.1",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.22"
   }
 }
