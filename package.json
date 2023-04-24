@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "my-comands": "node src/index.js"
+    "my-comands": "node src/index.js",
+    "start":"node src"
   },
   "author": "",
   "license": "ISC",
@@ -22,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/sabihak89/technetium/issues"
   },
-  "homepage": "https://github.com/sabihak89/technetium#readme"
+  "homepage": "https://github.com/sabihak89/technetium#readme",
+  "devDependencies": {}
 }
