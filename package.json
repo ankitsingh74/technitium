@@ -1,26 +1,23 @@
 {
-  "name": "y",
+  "name": "technitium",
   "version": "1.0.0",
-  "description": "Backend cohort for Technetium(Mar,2023)",
+  "description": "Nodejs Get Api Session",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "my-comands": "node src/index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "underscore": "^1.13.6"
+    "start": "nodemon src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sabihak89/technetium.git"
+    "url": "git+https://github.com/ankitsingh74/technitium.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sabihak89/technetium/issues"
+    "url": "https://github.com/ankitsingh74/technitium/issues"
   },
-  "homepage": "https://github.com/sabihak89/technetium#readme"
+  "homepage": "https://github.com/ankitsingh74/technitium#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
