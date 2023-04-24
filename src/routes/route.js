@@ -22,11 +22,18 @@ router.post('/players', function (req, res) {
   
     let newplayer=req.body;
     // console.log(newplayer);
+for (let i = 0; i < players.length; i++) {
+    const element = players[i].name;
+    if (element==newplayer.name) {
+        return res.send({msg:"name already present"})
+    }
+}
+
     players.push(newplayer)
 
     console.log(players);
     //LOGIC WILL COME HERE
-    res.send(  { data: players , status: true }  )
+  return  res.send(  { data: players , status: true }  )
 })
 
 
