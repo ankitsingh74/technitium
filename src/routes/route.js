@@ -1,42 +1,59 @@
 const express = require('express');
 const { route } = require('express/lib/application');
+const query = require('express/lib/middleware/query');
 const router = express.Router();
 
 
-let  players = [{
-    "name": "manish",
-    "dob": "1/1/1995",
-    "gender": "male",
-    "city": "jalandhar",
-    "sports": [
-        "swimming"
-    ]
-}
-]
-
-// Problem Statement 1 :
-// NOTE: you must create the players array outside( on the top ) of the api( so that data is maintained across api hits )
+// ASSIGNMENT:
+// you will be given an array of persons ( i.e an array of objects )..each person will have  a {name: String , age: Number, votingStatus: true/false(Boolean)}
+// take input in query param as votingAge..and for all the people above that age, change votingStatus as true
+// also return an array consisting of only the person that can vote
 
 
-router.post('/players', function (req, res) {
-  
-    let newplayer=req.body;
-    // console.log(newplayer);
-for (let i = 0; i < players.length; i++) {
-    const element = players[i].name;
-    if (element==newplayer.name) {
-        return res.send({msg:"name already present"})
+let persons= [
+    {
+    name: "PK",
+    age: 10,
+    votingStatus: false
+ },
+ {
+    name: "SK",
+    age: 20,
+    votingStatus: false
+ },
+ {
+    name: "AA",
+    age: 70,
+    votingStatus: false
+ },
+ {
+    name: "SC",
+    age: 5,
+    votingStatus: false
+ },
+ {
+    name: "HO",
+    age: 40,
+    votingStatus: false
+ }
+ ]
+ 
+router.post('/persons', function(req, res){
+    let votingperson=[]
+    let votingAge=req.query.votingAge
+    for (let i = 0; i < persons.length; i++) {
+        
+        const element = persons[i];
+        if(element.age>=votingAge){
+            element.votingStatus=true
+            votingperson.push(element)
+        }
     }
-}
-
-    players.push(newplayer)
-
-    console.log(players);
-    //LOGIC WILL COME HERE
-  return  res.send(  { data: players , status: true }  )
+    if(votingperson.length!==0){
+     return res.send({data:votingperson, status:true})
+    }
+    return res.send({msg:"data not availlable"})
 })
-
-
 
 
 module.exports = router;
