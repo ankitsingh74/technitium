@@ -4,22 +4,25 @@ const router = express.Router();
 const commonFile = require('./common')
 const myUnderscore = require('underscore')
 
+// console.log(commonFile);//{ name: 'FunctionUp', doSomething: [Function: doSomething] }
+
 router.get('/test-me', function (req, res) {
     res.send('This should be working!')
 });
 
 router.get('/test-you', function (req, res) {
-    console.log('The exported module is: ',commonFile)
-    commonFile.doSomething()
-    console.log('This is the constant I created', commonFile.name)
-    // res.send('Hello there, welcome to this application!')
+    // console.log('The exported module is: ',commonFile)
+    commonFile.doSomething()//I did something
+    // console.log('This is the constant I created', commonFile.name)
     res.send('Hello there, welcome to this application!33')
 });
 
 router.get('/test-underscore', function(req, res){
-    let result = myUnderscore.first([11,12,23,44,15], 4)
+    let result = myUnderscore.first([11,12,23,44,15], 2)
     console.log('the result is',result)
-    res.json('done')
+    // res.json('done')
+    res.send({msg:result})
+    
 })
 
 router.get('/cohorts', function (request, response){
@@ -48,6 +51,9 @@ router.get('/students/:studentName', function(req, res) {
     //res.send({data: studentDetails})
     res.send('student data')
 })
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------
 
 // Create an API for GET /movies that returns a list of movies. Define an array of movies in your code and return the value in response.
 let movies=['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins']
