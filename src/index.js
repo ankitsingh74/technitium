@@ -17,5 +17,5 @@ app.use('/', route);
 const PORT=3000;
 
 app.listen(PORT,function(req, res){
-    console.log("epress is running on port number "+PORT);
+    console.log("express is running on port number "+PORT);
 })
