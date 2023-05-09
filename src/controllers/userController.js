@@ -3,7 +3,6 @@ const UserModel= require("../models/userModel")
 
 
 
-
 const basicCode= async function(req, res) {
     
     let contentTypeHeader = req.headers.content-type
@@ -28,26 +27,20 @@ const basicCode= async function(req, res) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const createUser= async function (req, res) {
+
     let data= req.body
+
+    // let head = req.headers
+    // console.log(head);
+    if (!req.headers.isfreeappuser) {
+        return res.status(400).json({ error: 'Missing mandatory header: isFreeAppUser' });
+      }
     let savedData= await UserModel.create(data)
-    res.send({msg: savedData})
+    console.log(savedData);
+   return res.send({msg: savedData})
+ 
+  
 }
 
 const getUsersData= async function (req, res) {
