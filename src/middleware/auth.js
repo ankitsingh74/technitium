@@ -9,13 +9,14 @@ const authenticate = function(req, res, next) {
     if (!token) token = req.headers["x-auth-token"];
   
     //If no token is present in the request header return error
-    if (!token) return res.send({ status: false, msg: "token must be present" });
+    if (!token) return res.status(400).send({ status: false, msg: "token must be present" });
+
     try{
     let decodedToken = jwt.verify(token, "secretkey");
     next()
   }catch(error){
     // console.log("token is invaliddddddd");
-    return res.status(400).send({ status: false, msg: "token is invalid" });
+    return res.status(401).send({ status: false, msg: "token is invalid" });
   }
   
 }
@@ -24,14 +25,14 @@ const authenticate = function(req, res, next) {
 const authorise = async function(req, res, next) {
     // comapre the logged in user's id and the id in request
     let token = req.headers["x-auth-token"]
-    if(!token) return res.send({status: false, msg: "token must be present in the request header"})
+    if(!token) return res.status(400).send({status: false, msg: "token must be present in the request header"})
 
     try{
       var decodedToken = jwt.verify(token, "secretkey");
       req.user=decodedToken
       next()
     }catch(error){
-      return res.send({ status: false, msg: "token is invalid" });
+      return res.status(403).send({ status: false, msg: "token is invalid" });
     }
 
 }
